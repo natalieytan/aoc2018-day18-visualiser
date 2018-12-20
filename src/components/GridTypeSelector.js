@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
-import Grid from './components/Grid'
-import InputForm from './components/InputForm'
+import React, { Component } from 'react'
 
-class App extends Component {
+class GridTypeSelector extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      input: null,
       display: "display-text",
       groundText: "#CCCCCC",
       lumberText: "#333333",
@@ -19,7 +15,6 @@ class App extends Component {
       lumberEmoji : "⛺️",
       treeEmoji:  "🌲"
     }
-    this.handleInputChange = this.handleInputChange.bind(this)
     this.handleDisplayChange = this.handleDisplayChange.bind(this)
     this.handleCustomChange = this.handleCustomChange.bind(this)
     this.handleEmoji = this.handleEmoji.bind(this)
@@ -29,37 +24,20 @@ class App extends Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
-  handleCustomChange(event) {
-    this.setState({[event.target.name]: event.target.value})
-  }
-
   handleDisplayChange(event) {
     this.setState({display: event.target.value});
   }
 
-  handleInputChange(input) {
-    this.setState({input})
+  handleCustomChange(event) {
+    this.setState({[event.target.name]: event.target.value})
   }
-  
+
+
   render() {
-    let leftSide;
-    if(this.state.input) {
-      leftSide = <Grid input={this.state.input}
-                      handleInputChange = {this.handleInputChange}
-                      display = {this.state.display}
-                      customText = { {"#": this.state.lumberText, "|": this.state.treeText, ".": this.state.groundText} }
-                      customEmoji = { {"#": this.state.lumberEmoji, "|": this.state.treeEmoji, ".": this.state.groundEmoji} }
-                      customColor = { {"#": this.state.lumberColor, "|": this.state.treeColor, ".": this.state.groundColor} }
-                />
-    } else {
-      leftSide = <InputForm onInputChange={this.handleInputChange}/>  
-    }
-
-
     let selection;
     if (this.state.display === "display-text") {
       selection = (
-      <form className="custom-select">
+      <form>
       <label htmlFor="ground-text">Ground: </label>
       <input type="color" value={this.state.groundText} id="ground-text" name="groundText" onChange={this.handleCustomChange}/> 
       <label htmlFor="tree-text">Tree: </label>
@@ -70,52 +48,49 @@ class App extends Component {
       )
     } else if (this.state.display === "display-emoji") {
       selection = (
-      <form className="custom-select">
-        <label htmlFor="ground-emoji">Ground: </label>
+      <form>
         <select value={this.state.groundEmoji} id="ground-emoji" name="groundEmoji" onChange={this.handleEmoji}>
-          <option value="〰️">{"〰️"}</option>
-          <option value="➰">{"➰"}</option>
-          <option value="➿">{"➿"}</option>
-          <option value="🌀">{"🌀"}</option>
-          <option value="❗️">{"❗️"}</option>
-          <option value="❌">{"❌"}</option>
-          <option value="💩">{"💩"}</option>
-          <option value="☁️">{"☁️"}</option>
-          <option value="❤️">{"❤️"}</option>
-          <option value="⚠️">{"⚠️"}</option>
+          <option value="〰️">〰️</option>
+          <option value="➰">➰</option>
+          <option value="➿">➿</option>
+          <option value="🌀">🌀</option>
+          <option value="❗️">❗️</option>
+          <option value="❌">❌</option>
+          <option value="💩">💩</option>
+          <option value="☁️">☁️</option>
+          <option value="❤️">❤️</option>
+          <option value="⚠️">⚠️</option>
         </select>
 
-        <label htmlFor="tree-emoji">Tree: </label>
         <select value={this.state.treeEmoji} id="tree-emoji" name="treeEmoji" onChange={this.handleEmoji}>
-          <option value="🌲">{"🌲"}</option>
-          <option value="🎄">{"🎄"}</option>
-          <option value="🌳">{"🌳"}</option>
-          <option value="🌴">{"🌴"}</option>
-          <option value="🌵">{"🌵"}</option>
-          <option value="🌱">{"🌱"}</option>
-          <option value="🍄">{"🍄"}</option>
-          <option value="🌸">{"🌸"}</option>
-          <option value="🌻">{"🌻"}</option>
-          <option value="🦖">{"🦖"}</option>
+          <option value="🌲">🌲</option>
+          <option value="🎄">🎄</option>
+          <option value="🌳">🌳</option>
+          <option value="🌴">🌴</option>
+          <option value="🌵">🌵</option>
+          <option value="🌱">🌱</option>
+          <option value="🍄">🍄</option>
+          <option value="🌸">🌸</option>
+          <option value="🌻">🌻</option>
+          <option value="🦖 ">🦖 </option>
         </select>
 
-        <label htmlFor="lumber-emoji">Lumber: </label>
         <select value={this.state.lumberEmoji} id="lumber-emoji" name="lumberEmoji" onChange={this.handleEmoji}>
-          <option value="⛺️">{"⛺️"}</option>
-          <option value="🏕">{"🏕"}</option>
-          <option value="🚧 ">{"🚧"}</option>
-          <option value="🗿">{"🗿"}</option>
-          <option value="🚀">{"🚀"}</option>
-          <option value="🌱">{"🌱"}</option>
-          <option value="🔥">{"🔥"}</option>
-          <option value="💥">{"💥"}</option>
-          <option value="⭐️">{"⭐️"}</option>
-          <option value="⚡️ ">{"⚡️"} </option>
+          <option value="⛺️">⛺️</option>
+          <option value="🏕">🏕</option>
+          <option value="🚧 ">🚧 </option>
+          <option value="🗿">🗿</option>
+          <option value="🚀">🚀</option>
+          <option value="🌱">🌱</option>
+          <option value="🔥">🔥</option>
+          <option value="💥">💥</option>
+          <option value="⭐️">⭐️</option>
+          <option value="⚡️ ">⚡️ </option>
         </select>
       </form>)
-    } else if (this.state.display === "display-solid-color") {
+    } else if(this.state.display === "display-solid-color") {
       selection = (
-        <form className="custom-select">
+        <form>
         <label htmlFor="ground-text">Ground: </label>
         <input type="color" value={this.state.groundColor} id="ground-color" name="groundColor" onChange={this.handleCustomChange}/> 
         <label htmlFor="tree-color">Tree: </label>
@@ -125,12 +100,9 @@ class App extends Component {
         </form>
         )
     }
-      
+    
     return (
-    <div className="App">
-      <h2>AOC 2018 Day 18 Visualiser</h2>
       <div>
-        <h3>Customise display</h3>
         <form className="display-options">
           <input type="radio" id="display-text" name="display" value="display-text" 
                   checked={this.state.display === 'display-text' } onChange={this.handleDisplayChange} />
@@ -142,18 +114,15 @@ class App extends Component {
 
           <input type="radio" id="display-solid-color" name="display" value="display-solid-color" 
                 checked={this.state.display === 'display-solid-color'} onChange={this.handleDisplayChange} />
-          <label htmlFor="display-solid-color">Colored Squares</label>
+          <label htmlFor="display-solid-color">Solid Color</label>
         </form>
 
         {selection}
         
       </div>
+    )
 
-
-      <div> {leftSide} </div>
-      </div>
-    );
   }
 }
 
-export default App;
+export default GridTypeSelector

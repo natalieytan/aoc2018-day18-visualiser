@@ -1,32 +1,63 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  margin: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+textarea {
+  font-family: monospace;
+  font-size: 0.8rem;
+  border-radius: 2px;
 }
 
-.App-link {
-  color: #61dafb;
+.input-form {
+  max-width: 30rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+textarea {
+  width: 100%;
+}
+form button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.full-btn {
+  width: 100%;
+  margin: 0.8rem 0 0.8rem 0;
+}
+
+.half-btn {
+  width: 50%;
+}
+
+table {
+  font-size: 0.5rem;
+}
+
+td {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.display-options label {
+  margin: 0.2rem 2rem 0.4rem 0;
+}
+
+.display-options input {
+  margin: 0.2rem 0.7rem 0.4rem  0;
+}
+
+.custom-select input, select {
+  margin: 0.2rem 2rem 0.4rem 0;
 }
