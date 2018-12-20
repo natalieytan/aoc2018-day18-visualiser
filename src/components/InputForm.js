@@ -46,7 +46,7 @@ class InputForm extends Component {
       warning = ""
     }
     return (
-      <div>
+      <div className="input-box">
         <form className="input-form" onSubmit={this.handleSubmit}>
           <h3> Paste AoC input from <a href="https://adventofcode.com/2018/day/18">day 18</a> into text box </h3>
           <textarea
@@ -56,15 +56,11 @@ class InputForm extends Component {
           <br/>
           <span>{warning}</span>
           <br/>
-
           <button type="submit" className="full-btn" disabled={!this.state.valid}>Submit</button>
-
-
-          <button type="button" className="half-btn" onClick={this.useDefault}>Use Default Input</button>
-
-          
-          <button type="reset" className="half-btn" onClick={this.resetText}>Clear Input</button>
-          
+          <div className="flex-apart">
+            <button type="button" className="half-btn" onClick={this.useDefault}>Use Default Input</button>
+            <button type="reset" className="half-btn" onClick={this.resetText}>Clear Input</button>
+          </div>
         </form>
         
       </div>

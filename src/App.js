@@ -42,9 +42,9 @@ class App extends Component {
   }
   
   render() {
-    let leftSide;
+    let Main;
     if(this.state.input) {
-      leftSide = <Grid input={this.state.input}
+      Main = <Grid input={this.state.input}
                       handleInputChange = {this.handleInputChange}
                       display = {this.state.display}
                       customText = { {"#": this.state.lumberText, "|": this.state.treeText, ".": this.state.groundText} }
@@ -52,7 +52,7 @@ class App extends Component {
                       customColor = { {"#": this.state.lumberColor, "|": this.state.treeColor, ".": this.state.groundColor} }
                 />
     } else {
-      leftSide = <InputForm onInputChange={this.handleInputChange}/>  
+      Main = <InputForm onInputChange={this.handleInputChange}/>  
     }
 
 
@@ -128,8 +128,8 @@ class App extends Component {
       
     return (
     <div className="App">
-      <h2>AOC 2018 Day 18 Visualiser</h2>
-      <div>
+      <h1>AOC 2018 Day 18 Visualiser <span role="img">🌟 </span></h1>
+      <div className="customiser">
         <h3>Customise display</h3>
         <form className="display-options">
           <input type="radio" id="display-text" name="display" value="display-text" 
@@ -149,8 +149,7 @@ class App extends Component {
         
       </div>
 
-
-      <div> {leftSide} </div>
+      <div> {Main} </div>
       </div>
     );
   }

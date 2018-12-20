@@ -164,10 +164,14 @@ class Grid extends Component {
       }
     }
     return (
-      <div>
-      <button onClick={this.resetInput}> Reset Input </button>
-        {playPause}
-      <div>{this.state.counter}</div>
+      <div className="grid">
+      <div className="flex-apart">
+        <div className="grid-control">
+          <button onClick={this.resetInput}> Reset Input </button>
+          {playPause}
+        </div>
+        <p className="counter">{this.state.counter}</p>
+      </div>
       <table>
         <tbody>
         {items}
