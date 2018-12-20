@@ -2,6 +2,8 @@
 
 Advent of Code 2018 - [Day 18](https://adventofcode.com/2018/day/18)
 
+Deployed - [http://natalieytan.github.io/aoc2018-day18-visualiser](http://natalieytan.github.io/aoc2018-day18-visualiser)
+
 ## AoC Visualiser
 This puzzle lends itself to visualization.
 This app written in react lends itself to creating a customisable visualistion for any puzzle input.
